@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
         <title>BAYAN</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">

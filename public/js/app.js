@@ -5258,12 +5258,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -28475,25 +28469,7 @@ var render = function () {
       _c("Header"),
       _vm._v(" "),
       _c("div", { staticClass: "page-content" }, [
-        _c(
-          "div",
-          [
-            _c("Profile"),
-            _vm._v(" "),
-            _c("About"),
-            _vm._v(" "),
-            _c("Skills"),
-            _vm._v(" "),
-            _c("Portfolio"),
-            _vm._v(" "),
-            _c("Experience"),
-            _vm._v(" "),
-            _c("Education"),
-            _vm._v(" "),
-            _c("Contact"),
-          ],
-          1
-        ),
+        _c("div", [_c("Profile")], 1),
       ]),
       _vm._v(" "),
       _c("Footer"),

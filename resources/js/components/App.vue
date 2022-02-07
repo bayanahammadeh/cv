@@ -4,12 +4,6 @@
     <div class="page-content">
       <div>
         <Profile />
-        <About />
-        <Skills />
-        <Portfolio />
-        <Experience />
-        <Education />
-        <Contact />
       </div>
     </div>
     <Footer />
