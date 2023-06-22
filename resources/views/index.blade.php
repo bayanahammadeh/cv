@@ -34,9 +34,9 @@
                             style="background-image: url({{ asset('assets/images/background.jpg') }})"></div>
                         <div class="container">
                             <div class="content-center">
-                                <div class="cc-profile-image"><a href="#"><img src="{{ asset('assets/images/bayan.jpg') }}"
-                                            alt="Image" /></a></div>
-                                <div class="h2 title">{{ $personal->fname ." ".  $personal->lname}}</div>
+                                <div class="cc-profile-image"><a href="#"><img
+                                            src="{{ asset('assets/images/bayan.jpg') }}" alt="Image" /></a></div>
+                                <div class="h2 title">{{ $personal->fname . ' ' . $personal->lname }}</div>
                                 <p class="category text-white">{{ $personal->title }}</p><a
                                     class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in"
                                     data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="#"
@@ -45,15 +45,14 @@
                         </div>
                         <div class="section">
                             <div class="container">
-                                <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon"
-                                        href="#" rel="tooltip" title="Follow me on Facebook"><i
-                                            class="fa fa-facebook"></i></a><a
-                                        class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip"
-                                        title="Follow me on Twitter"><i class="fa fa-twitter"></i></a><a
-                                        class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip"
-                                        title="Follow me on Google+"><i class="fa fa-google-plus"></i></a><a
-                                        class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip"
-                                        title="Follow me on Instagram"><i class="fa fa-instagram"></i></a></div>
+                                <div class="button-container">
+                                    @foreach ($personal->socials as $social)
+                                        <a class="btn btn-default btn-round btn-lg btn-icon" href="{{ $social->url }}"
+                                            rel="tooltip" title="Follow me on {{ $social->name }}" target="_blank" <i
+                                            class="fa fa-{{ $social->name }}"></i>
+                                        </a>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -99,78 +98,15 @@
                     <div class="h4 text-center mb-4 title">Professional Skills</div>
                     <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="progress-container progress-primary"><span
-                                            class="progress-badge">HTML</span>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-primary" data-aos="progress-full"
-                                                data-aos-offset="10" data-aos-duration="2000" role="progressbar"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 80%;"></div><span class="progress-value">80%</span>
+                            @foreach ($personal->skills as $skill)
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="progress-container progress-primary"><span
+                                                class="progress-badge">{{ $skill->skill_name }}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="progress-container progress-primary"><span
-                                            class="progress-badge">CSS</span>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-primary" data-aos="progress-full"
-                                                data-aos-offset="10" data-aos-duration="2000" role="progressbar"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 75%;"></div><span class="progress-value">75%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="progress-container progress-primary"><span
-                                            class="progress-badge">JavaScript</span>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-primary" data-aos="progress-full"
-                                                data-aos-offset="10" data-aos-duration="2000" role="progressbar"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 60%;"></div><span class="progress-value">60%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="progress-container progress-primary"><span
-                                            class="progress-badge">SASS</span>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-primary" data-aos="progress-full"
-                                                data-aos-offset="10" data-aos-duration="2000" role="progressbar"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 60%;"></div><span class="progress-value">60%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="progress-container progress-primary"><span
-                                            class="progress-badge">Bootstrap</span>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-primary" data-aos="progress-full"
-                                                data-aos-offset="10" data-aos-duration="2000" role="progressbar"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 75%;"></div><span class="progress-value">75%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="progress-container progress-primary"><span
-                                            class="progress-badge">Photoshop</span>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-primary" data-aos="progress-full"
-                                                data-aos-offset="10" data-aos-duration="2000" role="progressbar"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 70%;"></div><span class="progress-value">70%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
