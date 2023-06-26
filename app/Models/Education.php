@@ -5,16 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Skill extends Model
+class Education extends Model
 {
     use HasFactory;
 
-    protected $table = "skills";
+
+    protected $table = "educations";
 
     protected $fillable = [
-        'skill_name',
-        'percentage',
+        'education_name',
         'personal_id'
     ];
 
+    public function details(){
+        return $this->hasMany('App\Models\Edudetail','education_id');
+    }
 }

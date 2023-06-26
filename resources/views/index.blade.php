@@ -48,8 +48,8 @@
                                 <div class="button-container">
                                     @foreach ($personal->socials as $social)
                                         <a class="btn btn-default btn-round btn-lg btn-icon" href="{{ $social->url }}"
-                                            rel="tooltip" title="Follow me on {{ $social->name }}" target="_blank" <i
-                                            class="fa fa-{{ $social->name }}"></i>
+                                            rel="tooltip" title="Follow me on {{ $social->name }}" target="_blank">
+                                            <i class="fa fa-{{ $social->name }}"></i>
                                         </a>
                                     @endforeach
                                 </div>
@@ -85,7 +85,14 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
-                                        <div class="col-sm-8">//////////</div>
+
+                                        <div class="col-sm-8">
+                                            @foreach ($personal->langs as $lang)
+                                                {{ $lang->lang_name }}
+                                                <br />
+                                            @endforeach
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -94,19 +101,19 @@
                 </div>
             </div>
             <div class="section" id="skill">
-                * <div class="container">
+                <div class="container">
                     <div class="h4 text-center mb-4 title">Professional Skills</div>
                     <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                         <div class="card-body">
-                            @foreach ($personal->skills as $skill)
-                                <div class="row">
+                            <div class="row">
+                                @foreach ($personal->skills as $skill)
                                     <div class="col-md-6">
                                         <div class="progress-container progress-primary"><span
                                                 class="progress-badge">{{ $skill->skill_name }}</span>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -116,167 +123,31 @@
                     <div class="row">
                         <div class="col-md-6 ml-auto mr-auto">
                             <div class="h4 text-center mb-4 title">Portfolio</div>
-                            <div class="nav-align-center">
-                                <ul class="nav nav-pills nav-pills-primary" role="tablist">
-                                    <li class="nav-item"><a class="nav-link active" data-toggle="tab"
-                                            href="#web-development" role="tablist"><i class="fa fa-laptop"
-                                                aria-hidden="true"></i></a></li>
-                                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#graphic-design"
-                                            role="tablist"><i class="fa fa-picture-o" aria-hidden="true"></i></a></li>
-                                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Photography"
-                                            role="tablist"><i class="fa fa-camera" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                     <div class="tab-content gallery mt-5">
                         <div class="tab-pane active" id="web-development">
                             <div class="ml-auto mr-auto">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                                                <figure class="cc-effect"><img src="images/project-1.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Recent Project</div>
-                                                        <p>Web Development</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                                                <figure class="cc-effect"><img src="images/project-2.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Startup Project</div>
-                                                        <p>Web Development</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                                                <figure class="cc-effect"><img src="images/project-3.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Food Order Project</div>
-                                                        <p>Web Development</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                                                <figure class="cc-effect"><img src="images/project-4.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Web Advertising Project</div>
-                                                        <p>Web Development</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="graphic-design" role="tabpanel">
-                            <div class="ml-auto mr-auto">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                                                <figure class="cc-effect"><img src="images/graphic-design-1.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Triangle Pattern</div>
-                                                        <p>Graphic Design</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                                                <figure class="cc-effect"><img src="images/graphic-design-2.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Abstract Umbrella</div>
-                                                        <p>Graphic Design</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                                                <figure class="cc-effect"><img src="images/graphic-design-3.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Cube Surface Texture</div>
-                                                        <p>Graphic Design</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                                                <figure class="cc-effect"><img src="images/graphic-design-4.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Abstract Line</div>
-                                                        <p>Graphic Design</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="Photography" role="tabpanel">
-                            <div class="ml-auto mr-auto">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                                                <figure class="cc-effect"><img src="images/photography-1.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Photoshoot</div>
-                                                        <p>Photography</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                                                <figure class="cc-effect"><img src="images/photography-3.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Wedding Photoshoot</div>
-                                                        <p>Photography</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                                                <figure class="cc-effect"><img src="images/photography-2.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Beach Photoshoot</div>
-                                                        <p>Photography</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                            data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                                                <figure class="cc-effect"><img src="images/photography-4.jpg"
-                                                        alt="Image" />
-                                                    <figcaption>
-                                                        <div class="h4">Nature Photoshoot</div>
-                                                        <p>Photography</p>
-                                                    </figcaption>
-                                                </figure>
-                                            </a></div>
-                                    </div>
+                                    @foreach ($personal->projects as $project)
+                                        <div class="col-md-6">
+                                            <div class="cc-porfolio-image img-raised" data-aos="fade-up"
+                                                data-aos-anchor-placement="top-bottom"><a
+                                                    href="{{ asset($project->project_url) }}" target="_blank">
+                                                    <figure class="cc-effect"><img
+                                                            src="{{ asset('assets/images/' . $project->project_image) }}"
+                                                            alt="Image" />
+                                                        <figcaption>
+                                                            <div class="h4">{{ $project->project_name }}
+                                                                <br />
+                                                                {{ $project->project_url }}
+                                                            </div>
+                                                        </figcaption>
+                                                    </figure>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -286,285 +157,127 @@
             <div class="section" id="experience">
                 <div class="container cc-experience">
                     <div class="h4 text-center mb-4 title">Work Experience</div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50"
-                                data-aos-duration="500">
-                                <div class="card-body cc-experience-header">
-                                    <p>March 2016 - Present</p>
-                                    <div class="h5">CreativeM</div>
-                                </div>
-                            </div>
-                            <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                                <div class="card-body">
-                                    <div class="h5">Front End Developer</div>
-                                    <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam
-                                        iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos
-                                        tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia
-                                        porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu
-                                        vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies
-                                        sollicitudin dui.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50"
-                                data-aos-duration="500">
-                                <div class="card-body cc-experience-header">
-                                    <p>April 2014 - March 2016</p>
-                                    <div class="h5">WebNote</div>
-                                </div>
-                            </div>
-                            <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                                <div class="card-body">
-                                    <div class="h5">Web Developer</div>
-                                    <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam
-                                        iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos
-                                        tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia
-                                        porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu
-                                        vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies
-                                        sollicitudin dui.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50"
-                                data-aos-duration="500">
-                                <div class="card-body cc-experience-header">
-                                    <p>April 2013 - February 2014</p>
-                                    <div class="h5">WEBM</div>
-                                </div>
-                            </div>
-                            <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                                <div class="card-body">
-                                    <div class="h5">Intern</div>
-                                    <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam
-                                        iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos
-                                        tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia
-                                        porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu
-                                        vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies
-                                        sollicitudin dui.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section">
-                <div class="container cc-education">
-                    <div class="h4 text-center mb-4 title">Education</div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50"
-                                data-aos-duration="500">
-                                <div class="card-body cc-education-header">
-                                    <p>2013 - 2015</p>
-                                    <div class="h5">Master's Degree</div>
-                                </div>
-                            </div>
-                            <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                                <div class="card-body">
-                                    <div class="h5">Master of Information Technology</div>
-                                    <p class="category">University of Computer Science</p>
-                                    <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam
-                                        iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos
-                                        tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia
-                                        porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu
-                                        vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies
-                                        sollicitudin dui.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50"
-                                data-aos-duration="500">
-                                <div class="card-body cc-education-header">
-                                    <p>2009 - 2013</p>
-                                    <div class="h5">Bachelor's Degree</div>
-                                </div>
-                            </div>
-                            <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                                <div class="card-body">
-                                    <div class="h5">Bachelor of Computer Science</div>
-                                    <p class="category">University of Computer Science</p>
-                                    <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam
-                                        iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos
-                                        tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia
-                                        porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu
-                                        vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies
-                                        sollicitudin dui.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50"
-                                data-aos-duration="500">
-                                <div class="card-body cc-education-header">
-                                    <p>2007 - 2009</p>
-                                    <div class="h5">High School</div>
-                                </div>
-                            </div>
-                            <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                                <div class="card-body">
-                                    <div class="h5">Science and Mathematics</div>
-                                    <p class="category">School of Secondary board</p>
-                                    <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam
-                                        iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos
-                                        tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia
-                                        porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu
-                                        vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies
-                                        sollicitudin dui.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section" id="reference">
-                <div class="container cc-reference">
-                    <div class="h4 mb-4 text-center title">References</div>
-                    <div class="card" data-aos="zoom-in">
-                        <div class="carousel slide" id="cc-Indicators" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li class="active" data-target="#cc-Indicators" data-slide-to="0"></li>
-                                <li data-target="#cc-Indicators" data-slide-to="1"></li>
-                                <li data-target="#cc-Indicators" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <div class="col-lg-2 col-md-3 cc-reference-header"><img
-                                                src="images/reference-image-1.jpg" alt="Image" />
-                                            <div class="h5 pt-2">Aiyana</div>
-                                            <p class="category">CEO / WEBM</p>
-                                        </div>
-                                        <div class="col-lg-10 col-md-9">
-                                            <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante
-                                                pulvinar ad, est porta cras erat ullamcorper volutpat metus duis platea
-                                                convallis, tortor primis ac quisque etiam luctus nisl nullam fames. Ligula
-                                                purus suscipit tempus nascetur curabitur donec nam ullamcorper, laoreet
-                                                nullam mauris dui aptent facilisis neque elementum ac, risus semper felis
-                                                parturient fringilla rhoncus eleifend.</p>
+                    @foreach ($personal->experiences as $experience)
+                        @foreach ($experience->jobs as $job)
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-md-5 bg-primary" data-aos="fade-right" data-aos-offset="50"
+                                        data-aos-duration="500">
+                                        <div class="card-body cc-experience-header">
+                                            <p>{{ $experience->period }}</p>
+                                            <div class="h5">{{ $job->job_header }}</div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <div class="col-lg-2 col-md-3 cc-reference-header"><img
-                                                src="images/reference-image-2.jpg" alt="Image" />
-                                            <div class="h5 pt-2">Braiden</div>
-                                            <p class="category">CEO / Creativem</p>
-                                        </div>
-                                        <div class="col-lg-10 col-md-9">
-                                            <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante
-                                                pulvinar ad, est porta cras erat ullamcorper volutpat metus duis platea
-                                                convallis, tortor primis ac quisque etiam luctus nisl nullam fames. Ligula
-                                                purus suscipit tempus nascetur curabitur donec nam ullamcorper, laoreet
-                                                nullam mauris dui aptent facilisis neque elementum ac, risus semper felis
-                                                parturient fringilla rhoncus eleifend.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <div class="col-lg-2 col-md-3 cc-reference-header"><img
-                                                src="images/reference-image-3.jpg" alt="Image" />
-                                            <div class="h5 pt-2">Alexander</div>
-                                            <p class="category">CEO / Webnote</p>
-                                        </div>
-                                        <div class="col-lg-10 col-md-9">
-                                            <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante
-                                                pulvinar ad, est porta cras erat ullamcorper volutpat metus duis platea
-                                                convallis, tortor primis ac quisque etiam luctus nisl nullam fames. Ligula
-                                                purus suscipit tempus nascetur curabitur donec nam ullamcorper, laoreet
-                                                nullam mauris dui aptent facilisis neque elementum ac, risus semper felis
-                                                parturient fringilla rhoncus eleifend.</p>
+                                    <div class="col-md-7" data-aos="fade-left" data-aos-offset="50"
+                                        data-aos-duration="500">
+                                        <div class="card-body">
+                                            <p>{{ $job->description }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section" id="contact">
-                <div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
-                    <div class="container">
-                        <div class="cc-contact">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <div class="card mb-0" data-aos="zoom-in">
-                                        <div class="h4 text-center title">Contact Me</div>
+                        @endforeach
+                    @endforeach
+
+                    <div class="section">
+                        <div class="container cc-education">
+                            <div class="h4 text-center mb-4 title">Education</div>
+                            @foreach ($personal->educations as $education)
+                                @foreach ($education->details as $detail)
+                                    <div class="card">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="card-body">
-                                                    <form action="https://formspree.io/your@email.com" method="POST">
-                                                        <div class="p pb-3"><strong>Feel free to contact me </strong></div>
-                                                        <div class="row mb-3">
-                                                            <div class="col">
-                                                                <div class="input-group"><span
-                                                                        class="input-group-addon"><i
-                                                                            class="fa fa-user-circle"></i></span>
-                                                                    <input class="form-control" type="text"
-                                                                        name="name" placeholder="Name"
-                                                                        required="required" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mb-3">
-                                                            <div class="col">
-                                                                <div class="input-group"><span
-                                                                        class="input-group-addon"><i
-                                                                            class="fa fa-file-text"></i></span>
-                                                                    <input class="form-control" type="text"
-                                                                        name="Subject" placeholder="Subject"
-                                                                        required="required" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mb-3">
-                                                            <div class="col">
-                                                                <div class="input-group"><span
-                                                                        class="input-group-addon"><i
-                                                                            class="fa fa-envelope"></i></span>
-                                                                    <input class="form-control" type="email"
-                                                                        name="_replyto" placeholder="E-mail"
-                                                                        required="required" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mb-3">
-                                                            <div class="col">
-                                                                <div class="form-group">
-                                                                    <textarea class="form-control" name="message" placeholder="Your Message" required="required"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <button class="btn btn-primary"
-                                                                    type="submit">Send</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
+                                            <div class="col-md-5 bg-primary" data-aos="fade-right" data-aos-offset="50"
+                                                data-aos-duration="500">
+                                                <div class="card-body cc-education-header">
+                                                    <p>2013 - 2015</p>
+                                                    <div class="h5">{{ $education->education_name }}</div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-7" data-aos="fade-left" data-aos-offset="50"
+                                                data-aos-duration="500">
                                                 <div class="card-body">
-                                                    <p class="mb-0"><strong>Address </strong></p>
-                                                    <p class="pb-2">140, City Center, New York, U.S.A</p>
-                                                    <p class="mb-0"><strong>Phone</strong></p>
-                                                    <p class="pb-2">+1718-111-0011</p>
-                                                    <p class="mb-0"><strong>Email</strong></p>
-                                                    <p>anthony@company.com</p>
+                                                    <div class="h5">{{ $detail->edu_name }}</div>
+                                                    <p class="category">{{ $detail->detail }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="section" id="contact">
+                        <div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
+                            <div class="container">
+                                <div class="cc-contact">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="card mb-0" data-aos="zoom-in">
+                                                <div class="h4 text-center title">Contact Me</div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="card-body">
+                                                            <form action="https://formspree.io/your@email.com"
+                                                                method="POST">
+                                                                <div class="row mb-3">
+                                                                    <div class="col">
+                                                                        <div class="input-group"><span
+                                                                                class="input-group-addon"><i
+                                                                                    class="fa fa-user-circle"></i></span>
+                                                                            <input class="form-control" type="text"
+                                                                                name="name" placeholder="Name"
+                                                                                required="required" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mb-3">
+                                                                    <div class="col">
+                                                                        <div class="input-group"><span
+                                                                                class="input-group-addon"><i
+                                                                                    class="fa fa-file-text"></i></span>
+                                                                            <input class="form-control" type="text"
+                                                                                name="Subject" placeholder="Subject"
+                                                                                required="required" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mb-3">
+                                                                    <div class="col">
+                                                                        <div class="input-group"><span
+                                                                                class="input-group-addon"><i
+                                                                                    class="fa fa-envelope"></i></span>
+                                                                            <input class="form-control" type="email"
+                                                                                name="_replyto" placeholder="E-mail"
+                                                                                required="required" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mb-3">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <textarea class="form-control" name="message" placeholder="Your Message" required="required"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <button class="btn btn-primary"
+                                                                            type="submit">Send</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="card-body">
+                                                            <p class="mb-0"><strong>Address </strong></p>
+                                                            <p class="pb-2">{{ $personal->address }}</p>
+                                                            <p class="mb-0"><strong>Phone</strong></p>
+                                                            <p class="pb-2">{{ $personal->mobile }}</p>
+                                                            <p class="mb-0"><strong>Email</strong></p>
+                                                            <p>{{ $personal->email }}</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -575,19 +288,14 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <footer class="footer">
-        <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i
-                    class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link "
-                href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a
-                class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x"
-                    aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i
-                    class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
-        <div class="h4 title text-center">Anthony Barnett</div>
-        <div class="text-center text-muted">
-            <p>&copy; Creative CV. All rights reserved.<br>Design - <a class="credit" href="https://templateflip.com"
-                    target="_blank">TemplateFlip</a></p>
-        </div>
-    </footer>
-@endsection
+            <footer class="footer">
+                <div class="container text-center">
+                    @foreach ($personal->socials as $social)
+                    <a class="cc-{{ $social->name }} btn btn-link" href="{{ $social->url }}">
+                        <i class="fa fa-{{ $social->name }} fa-2x " aria-hidden="true"></i>
+                    </a>
+                    @endforeach
+                </div>
+                <div class="h4 title text-center">{{ $personal->fname . ' ' . $personal->lname }}</div>
+            </footer>
+        @endsection
