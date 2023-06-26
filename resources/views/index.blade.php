@@ -39,8 +39,8 @@
                                 <div class="h2 title">{{ $personal->fname . ' ' . $personal->lname }}</div>
                                 <p class="category text-white">{{ $personal->title }}</p><a
                                     class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in"
-                                    data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="#"
-                                    data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
+                                    data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="{{ url('/download/'.$personal->pdf) }}"
+                                    data-aos="zoom-in" data-aos-anchor="data-aos-anchor" target="_blank">Download CV</a>
                             </div>
                         </div>
                         <div class="section">

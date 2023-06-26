@@ -6,6 +6,8 @@ use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use App\Models\Personal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class PersonalController extends Controller
 {
@@ -32,5 +34,10 @@ class PersonalController extends Controller
             'status' => 200,
             'message' => 'Your message was sent successfully',
         ]);
+    }
+
+    public function download($pdf)
+    {
+        return response()->download(public_path('assets/pdf/'.$pdf));
     }
 }
