@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',[\App\Http\Controllers\PersonalController::class,'index']);
+Route::post('/store',[\App\Http\Controllers\PersonalController::class,'contact']);

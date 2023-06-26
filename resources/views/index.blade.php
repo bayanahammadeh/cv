@@ -31,7 +31,7 @@
                 <div class="wrapper">
                     <div class="page-header page-header-small" filter-color="green">
                         <div class="page-header-image" data-parallax="true"
-                            style="background-image: url({{ asset('assets/images/background.jpg') }})"></div>
+                            style="background-image: url({{ asset('assets/images/duma.jpeg') }})"></div>
                         <div class="container">
                             <div class="content-center">
                                 <div class="cc-profile-image"><a href="#"><img
@@ -214,19 +214,22 @@
                                         <div class="col-md-9">
                                             <div class="card mb-0" data-aos="zoom-in">
                                                 <div class="h4 text-center title">Contact Me</div>
+                                                <div class="alert alert-success" id="success_msg" style="display:none">
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="card-body">
-                                                            <form action="https://formspree.io/your@email.com"
-                                                                method="POST">
+                                                            <form method="POST">
+                                                                @csrf
+
                                                                 <div class="row mb-3">
                                                                     <div class="col">
                                                                         <div class="input-group"><span
                                                                                 class="input-group-addon"><i
                                                                                     class="fa fa-user-circle"></i></span>
                                                                             <input class="form-control" type="text"
-                                                                                name="name" placeholder="Name"
-                                                                                required="required" />
+                                                                                name="name" id="name"
+                                                                                placeholder="Name" required="required" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -236,7 +239,8 @@
                                                                                 class="input-group-addon"><i
                                                                                     class="fa fa-file-text"></i></span>
                                                                             <input class="form-control" type="text"
-                                                                                name="Subject" placeholder="Subject"
+                                                                                name="Subject"
+                                                                                id="subject" placeholder="Subject"
                                                                                 required="required" />
                                                                         </div>
                                                                     </div>
@@ -247,7 +251,8 @@
                                                                                 class="input-group-addon"><i
                                                                                     class="fa fa-envelope"></i></span>
                                                                             <input class="form-control" type="email"
-                                                                                name="_replyto" placeholder="E-mail"
+                                                                                name="email" id="email"
+                                                                                placeholder="E-mail"
                                                                                 required="required" />
                                                                         </div>
                                                                     </div>
@@ -255,14 +260,14 @@
                                                                 <div class="row mb-3">
                                                                     <div class="col">
                                                                         <div class="form-group">
-                                                                            <textarea class="form-control" name="message" placeholder="Your Message" required="required"></textarea>
+                                                                            <textarea class="form-control" name="message" id="message" placeholder="Your Message" required="required"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col">
-                                                                        <button class="btn btn-primary"
-                                                                            type="submit">Send</button>
+                                                                        <button type="submit" id="submit"
+                                                                            class="btn btn-primary">Send</button>
                                                                     </div>
                                                                 </div>
                                                             </form>
@@ -291,11 +296,50 @@
             <footer class="footer">
                 <div class="container text-center">
                     @foreach ($personal->socials as $social)
-                    <a class="cc-{{ $social->name }} btn btn-link" href="{{ $social->url }}">
-                        <i class="fa fa-{{ $social->name }} fa-2x " aria-hidden="true"></i>
-                    </a>
+                        <a class="cc-{{ $social->name }} btn btn-link" href="{{ $social->url }}" target="_blank">
+                            <i class="fa fa-{{ $social->name }} fa-2x " aria-hidden="true"></i>
+                        </a>
                     @endforeach
                 </div>
                 <div class="h4 title text-center">{{ $personal->fname . ' ' . $personal->lname }}</div>
             </footer>
+        @endsection
+
+        @section('scripts')
+            <script>
+                $("#submit").click(function(e) {
+                    e.preventDefault();
+                    var name = $('#name').val();
+                    var subject = $('#subject').val();
+                    var email = $('#email').val();
+                    var message = $('#message').val();
+
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+
+
+                    $.ajax({
+                        type: 'POST',
+                        data: {
+                            name: name,
+                            subject: subject,
+                            email: email,
+                            message: message,
+                        },
+                        dataType: 'json',
+                        url: '{{ url('store') }}',
+                        success: function(data) {
+                            $('#success_msg').show();
+                            $('#success_msg').text(data.message);
+                        },
+                        error: function(data) {
+                            $('#success_msg').show();
+                            $('#success_msg').text(data.message);
+                        }
+                    });
+                });
+            </script>
         @endsection
