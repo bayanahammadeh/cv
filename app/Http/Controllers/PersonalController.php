@@ -32,7 +32,7 @@ class PersonalController extends Controller
 
         return response()->json([
             'status' => 200,
-            'message' => 'Your message was sent successfully',
+            'message' => 'Your message was sent Successfully',
         ]);
     }
 
