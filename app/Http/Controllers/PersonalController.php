@@ -27,6 +27,7 @@ class PersonalController extends Controller
         $contact->email = $request->email;
         $contact->subject = $request->subject;
         $contact->msg = $request->message;
+        $contact->status = 0;
 
         $contact->save();
 
