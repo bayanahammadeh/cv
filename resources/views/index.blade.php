@@ -322,6 +322,7 @@
         function topFunction() {
           document.body.scrollTop = 0;
           document.documentElement.scrollTop = 0;
+          $('#success_msg').hide();
         }
 
 
@@ -350,6 +351,7 @@
                 dataType: 'json',
                 url: '{{ url('store') }}',
                 success: function(data) {
+                    $('#contact form')[0].reset();
                     $('#success_msg').show();
                     $('#success_msg').text(data.message);
                 },
