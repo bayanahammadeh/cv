@@ -18,6 +18,7 @@
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Skills</a></li>
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li>
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
+                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">Education</a></li>
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
                         </ul>
                     </div>
@@ -39,8 +40,9 @@
                                 <div class="h2 title">{{ $personal->fname . ' ' . $personal->lname }}</div>
                                 <p class="category text-white">{{ $personal->title }}</p><a
                                     class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in"
-                                    data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="{{ url('/download/'.$personal->pdf) }}"
-                                    data-aos="zoom-in" data-aos-anchor="data-aos-anchor" target="_blank">Download CV</a>
+                                    data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary"
+                                    href="{{ url('/download/' . $personal->pdf) }}" data-aos="zoom-in"
+                                    data-aos-anchor="data-aos-anchor" target="_blank">Download CV</a>
                             </div>
                         </div>
                         <div class="section">
@@ -178,111 +180,108 @@
                             </div>
                         @endforeach
                     @endforeach
-
-                    <div class="section">
-                        <div class="container cc-education">
-                            <div class="h4 text-center mb-4 title">Education</div>
-                            @foreach ($personal->educations as $education)
-                                @foreach ($education->details as $detail)
-                                    <div class="card">
-                                        <div class="row">
-                                            <div class="col-md-5 bg-primary" data-aos="fade-right" data-aos-offset="50"
-                                                data-aos-duration="500">
-                                                <div class="card-body cc-education-header">
-                                                    <p>2013 - 2015</p>
-                                                    <div class="h5">{{ $education->education_name }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-7" data-aos="fade-left" data-aos-offset="50"
-                                                data-aos-duration="500">
-                                                <div class="card-body">
-                                                    <div class="h5">{{ $detail->edu_name }}</div>
-                                                    <p class="category">{{ $detail->detail }}</p>
-                                                </div>
-                                            </div>
+                </div>
+            </div>
+            <div class="section" id="education">
+                <div class="container cc-education">
+                    <div class="h4 text-center mb-4 title">Education</div>
+                    @foreach ($personal->educations as $education)
+                        @foreach ($education->details as $detail)
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-md-5 bg-primary" data-aos="fade-right" data-aos-offset="50"
+                                        data-aos-duration="500">
+                                        <div class="card-body cc-education-header">
+                                            <p>2013 - 2015</p>
+                                            <div class="h5">{{ $education->education_name }}</div>
                                         </div>
                                     </div>
-                                @endforeach
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="section" id="contact">
-                        <div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
-                            <div class="container">
-                                <div class="cc-contact">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <div class="card mb-0" data-aos="zoom-in">
-                                                <div class="h4 text-center title">Contact Me</div>
-                                                <div class="alert alert-success" id="success_msg" style="display:none">
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="card-body">
-                                                            <form method="POST">
-                                                                @csrf
+                                    <div class="col-md-7" data-aos="fade-left" data-aos-offset="50"
+                                        data-aos-duration="500">
+                                        <div class="card-body">
+                                            <div class="h5">{{ $detail->edu_name }}</div>
+                                            <p class="category">{{ $detail->detail }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endforeach
+                </div>
+            </div>
+            <div class="section" id="contact">
+                <div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
+                    <div class="container">
+                        <div class="cc-contact">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="card mb-0" data-aos="zoom-in">
+                                        <div class="h4 text-center title">Contact Me</div>
+                                        <div class="alert alert-success" id="success_msg" style="display:none">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="card-body">
+                                                    <form method="POST">
+                                                        @csrf
 
-                                                                <div class="row mb-3">
-                                                                    <div class="col">
-                                                                        <div class="input-group"><span
-                                                                                class="input-group-addon"><i
-                                                                                    class="fa fa-user-circle"></i></span>
-                                                                            <input class="form-control" type="text"
-                                                                                name="name" id="name"
-                                                                                placeholder="Name" required="required" />
-                                                                        </div>
-                                                                    </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col">
+                                                                <div class="input-group"><span
+                                                                        class="input-group-addon"><i
+                                                                            class="fa fa-user-circle"></i></span>
+                                                                    <input class="form-control" type="text"
+                                                                        name="name" id="name" placeholder="Name"
+                                                                        required="required" />
                                                                 </div>
-                                                                <div class="row mb-3">
-                                                                    <div class="col">
-                                                                        <div class="input-group"><span
-                                                                                class="input-group-addon"><i
-                                                                                    class="fa fa-file-text"></i></span>
-                                                                            <input class="form-control" type="text"
-                                                                                name="Subject"
-                                                                                id="subject" placeholder="Subject"
-                                                                                required="required" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mb-3">
-                                                                    <div class="col">
-                                                                        <div class="input-group"><span
-                                                                                class="input-group-addon"><i
-                                                                                    class="fa fa-envelope"></i></span>
-                                                                            <input class="form-control" type="email"
-                                                                                name="email" id="email"
-                                                                                placeholder="E-mail"
-                                                                                required="required" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row mb-3">
-                                                                    <div class="col">
-                                                                        <div class="form-group">
-                                                                            <textarea class="form-control" name="message" id="message" placeholder="Your Message" required="required"></textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <button type="submit" id="submit"
-                                                                            class="btn btn-primary">Send</button>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="card-body">
-                                                            <p class="mb-0"><strong>Address </strong></p>
-                                                            <p class="pb-2">{{ $personal->address }}</p>
-                                                            <p class="mb-0"><strong>Phone</strong></p>
-                                                            <p class="pb-2">{{ $personal->mobile }}</p>
-                                                            <p class="mb-0"><strong>Email</strong></p>
-                                                            <p>{{ $personal->email }}</p>
+                                                        <div class="row mb-3">
+                                                            <div class="col">
+                                                                <div class="input-group"><span
+                                                                        class="input-group-addon"><i
+                                                                            class="fa fa-file-text"></i></span>
+                                                                    <input class="form-control" type="text"
+                                                                        name="Subject" id="subject"
+                                                                        placeholder="Subject" required="required" />
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col">
+                                                                <div class="input-group"><span
+                                                                        class="input-group-addon"><i
+                                                                            class="fa fa-envelope"></i></span>
+                                                                    <input class="form-control" type="email"
+                                                                        name="email" id="email"
+                                                                        placeholder="E-mail" required="required" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <textarea class="form-control" name="message" id="message" placeholder="Your Message" required="required"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <button type="submit" id="submit"
+                                                                    class="btn btn-primary">Send</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card-body">
+                                                    <p class="mb-0"><strong>Address </strong></p>
+                                                    <p class="pb-2">{{ $personal->address }}</p>
+                                                    <p class="mb-0"><strong>Phone</strong></p>
+                                                    <p class="pb-2">{{ $personal->mobile }}</p>
+                                                    <p class="mb-0"><strong>Email</strong></p>
+                                                    <p>{{ $personal->email }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -293,53 +292,72 @@
                     </div>
                 </div>
             </div>
-            <footer class="footer">
-                <div class="container text-center">
-                    @foreach ($personal->socials as $social)
-                        <a class="cc-{{ $social->name }} btn btn-link" href="{{ $social->url }}" target="_blank">
-                            <i class="fa fa-{{ $social->name }} fa-2x " aria-hidden="true"></i>
-                        </a>
-                    @endforeach
-                </div>
-                <div class="h4 title text-center">{{ $personal->fname . ' ' . $personal->lname }}</div>
-            </footer>
-        @endsection
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container text-center">
+            @foreach ($personal->socials as $social)
+                <a class="cc-{{ $social->name }} btn btn-link" href="{{ $social->url }}" target="_blank">
+                    <i class="fa fa-{{ $social->name }} fa-2x " aria-hidden="true"></i>
+                </a>
+            @endforeach
+        </div>
+        <div class="h4 title text-center">{{ $personal->fname . ' ' . $personal->lname }}</div>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><span class="fa fa-arrow-up"></span></button>
+@endsection
 
-        @section('scripts')
-            <script>
-                $("#submit").click(function(e) {
-                    e.preventDefault();
-                    var name = $('#name').val();
-                    var subject = $('#subject').val();
-                    var email = $('#email').val();
-                    var message = $('#message').val();
+@section('scripts')
+    <script>
 
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
+        let mybutton = document.getElementById("myBtn");
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
 
 
-                    $.ajax({
-                        type: 'POST',
-                        data: {
-                            name: name,
-                            subject: subject,
-                            email: email,
-                            message: message,
-                        },
-                        dataType: 'json',
-                        url: '{{ url('store') }}',
-                        success: function(data) {
-                            $('#success_msg').show();
-                            $('#success_msg').text(data.message);
-                        },
-                        error: function(data) {
-                            $('#success_msg').show();
-                            $('#success_msg').text(data.message);
-                        }
-                    });
-                });
-            </script>
-        @endsection
+        $("#submit").click(function(e) {
+            e.preventDefault();
+            var name = $('#name').val();
+            var subject = $('#subject').val();
+            var email = $('#email').val();
+            var message = $('#message').val();
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            $.ajax({
+                type: 'POST',
+                data: {
+                    name: name,
+                    subject: subject,
+                    email: email,
+                    message: message,
+                },
+                dataType: 'json',
+                url: '{{ url('store') }}',
+                success: function(data) {
+                    $('#success_msg').show();
+                    $('#success_msg').text(data.message);
+                },
+                error: function(data) {
+                    $('#success_msg').show();
+                    $('#success_msg').text(data.message);
+                }
+            });
+        });
+    </script>
+@endsection
